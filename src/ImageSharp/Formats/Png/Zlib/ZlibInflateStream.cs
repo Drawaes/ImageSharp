@@ -17,7 +17,7 @@ namespace ImageSharp.Formats
         /// <summary>
         /// The raw stream containing the uncompressed image data.
         /// </summary>
-        private readonly Stream rawStream;
+        private readonly BetterDeflateWrapper rawStream;
 
         /// <summary>
         /// A value indicating whether this instance of the given entity has been disposed.
@@ -49,7 +49,7 @@ namespace ImageSharp.Formats
         /// <exception cref="Exception">
         /// Thrown if the compression method is incorrect.
         /// </exception>
-        public ZlibInflateStream(Stream stream)
+        public ZlibInflateStream(BetterDeflateWrapper stream)
         {
             // The DICT dictionary identifier identifying the used dictionary.
 

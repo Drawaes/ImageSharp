@@ -4,7 +4,7 @@
     <AssemblyTitle>ImageSharp.Drawing</AssemblyTitle>
     <VersionPrefix>1.0.0-alpha6</VersionPrefix>
     <Authors>James Jackson-South and contributors</Authors>
-    <TargetFramework>netstandard1.1</TargetFramework>
+    <TargetFramework>netstandard1.3</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>ImageSharp.Drawing</AssemblyName>

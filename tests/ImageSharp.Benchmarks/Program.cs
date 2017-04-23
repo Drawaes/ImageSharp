@@ -20,6 +20,9 @@ namespace ImageSharp.Benchmarks
         /// </param>
         public static void Main(string[] args)
         {
+            var decode = new Image.DecodePng();
+            decode.ReadImages();
+            decode.PngCore();
             new BenchmarkSwitcher(typeof(Program).GetTypeInfo().Assembly).Run(args);
         }
     }
