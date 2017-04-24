@@ -4,7 +4,7 @@
     <AssemblyTitle>ImageSharp</AssemblyTitle>
     <VersionPrefix>1.0.0-alpha6</VersionPrefix>
     <Authors>James Jackson-South and contributors</Authors>
-    <TargetFrameworks>netstandard1.3;netstandard1.1</TargetFrameworks>
+    <TargetFrameworks>netstandard1.3</TargetFrameworks>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>ImageSharp</AssemblyName>
