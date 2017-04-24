@@ -647,20 +647,25 @@ namespace ImageSharp.Formats
 
                 case PngColorType.RgbWithAlpha:
 
-                    for (int x = 0; x < this.header.Width; x++)
-                    {
-                        int offset = 1 + (x * this.bytesPerPixel);
-
-                        byte r = defilteredScanline[offset];
-                        byte g = defilteredScanline[offset + this.bytesPerSample];
-                        byte b = defilteredScanline[offset + (2 * this.bytesPerSample)];
-                        byte a = defilteredScanline[offset + (3 * this.bytesPerSample)];
-
-                        color.PackFromBytes(r, g, b, a);
-                        pixels[x, row] = color;
-                    }
+                    this.RgbWithAlpha(defilteredScanline, row, pixels);
 
                     break;
+            }
+        }
+
+        private unsafe void RgbWithAlpha<TColor>(byte[] defilteredScanline, int row, PixelAccessor<TColor> pixels)
+            where TColor : struct, IPixel<TColor>
+        {
+            int offset = this.bytesPerSample * 4;
+            int width = this.header.Width * offset;
+            int pixelId = row * this.header.Width;
+            TColor[] temp = pixels.PixelArray;
+            Color[] pixelArray = temp as Color[];
+
+            fixed (byte* ptr = defilteredScanline)
+            fixed (Color* pixelPtr = pixelArray)
+            {
+                Unsafe.CopyBlock(pixelPtr + pixelId, ptr + 1, (uint)(defilteredScanline.Length - 1));
             }
         }
 
